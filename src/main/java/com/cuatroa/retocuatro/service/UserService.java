@@ -55,6 +55,7 @@ public class UserService {
         
     }
 
+    //servicio para  actualizar los datos del usuario registrado
     public User update(User user) {
 
         if (user.getId() != null) {
@@ -92,6 +93,7 @@ public class UserService {
         }
     }
     
+    //servicio para borrar los datos del usuario registrado utilizando el id
     public boolean delete(int userId) {
         Boolean aBoolean = getUser(userId).map(user -> {
             userRepository.delete(user);
@@ -100,10 +102,12 @@ public class UserService {
         return aBoolean;
     }
     
+    //servicio para la validacion del email si ya esta registrado con otro usuario
     public boolean emailExists(String email) {
         return userRepository.emailExists(email);
     }
 
+    //servicio para comprobar que los datos de email y password son correctos
     public User authenticateUser(String email, String password) {
         Optional<User> usuario = userRepository.authenticateUser(email, password);
 

@@ -20,8 +20,8 @@ public class Gadget {
     private String category;
     private String name;
     private String description;
-    private boolean availability = true;
     private double price;
+    private boolean availability = true;
     private int quantity;
     private String photography;
 }
